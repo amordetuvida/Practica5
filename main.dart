@@ -6,34 +6,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   
+    
     return MaterialApp(
       title: 'Startup Name Generator',
-      home: RandomWords(),        
+      home: RandomWords(),
     );
   }
 }
 class RandomWordsState extends State<RandomWords> {
-  // TODO Add build() method
-}
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => new RandomWordsState();
-}
-class RandomWordsState extends State<RandomWords> {
- @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text('Startup Name Generator'),
-    ),
-    body: _buildSuggestions(),
-  );
-}
-}
-class RandomWordsState extends State<RandomWords> {
-  final _suggestions = <WordPair>[];
-  final _biggerFont = const TextStyle(fontSize: 18.0);
   Widget _buildRow(WordPair pair) {
   return ListTile(
     title: Text(
@@ -42,8 +22,7 @@ class RandomWordsState extends State<RandomWords> {
     ),
   );
 }
-}
-Widget _buildSuggestions() {
+  Widget _buildSuggestions() {
   return ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemBuilder: /*1*/ (context, i) {
@@ -55,4 +34,20 @@ Widget _buildSuggestions() {
         }
         return _buildRow(_suggestions[index]);
       });
+}
+  final _suggestions = <WordPair>[];
+  final _biggerFont = const TextStyle(fontSize: 18.0);
+  @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Startup Name Generator'),
+    ),
+    body: _buildSuggestions(),
+  );
+}
+}
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() => new RandomWordsState();
 }
